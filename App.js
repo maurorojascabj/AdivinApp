@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   View,
@@ -13,12 +5,14 @@ import {
 } from 'react-native';
 
 import Header from './components/Header';
+import StartGameScreen from './screens/StartGameScreen';
 
 const App: () => React$Node = () => {
   return (
     <>
       <View style={styles.screen}>
         <Header title='Adivinar Número'/>
+        <StartGameScreen/>
       </View>
     </>
   );
