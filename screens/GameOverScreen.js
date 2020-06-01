@@ -1,10 +1,23 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import colors from '../constants/colors';
 
 const GameOverScreen = props => {
     return (
         <View style={styles.screen}>
-            <Text>El juego ah terminado!</Text>
+            <Text style={styles.boldText}>¡Juego Terminado!</Text>
+            <View style={styles.imageContainer}>
+                <Image 
+                    source={require('../images/original.png')} 
+                    style={styles.image}
+                />
+            </View>
+            <Text style={styles.boldText}>En
+                <Text style={styles.colorText}> {props.roundsNumber} </Text> 
+                rondas, adivinó el número 
+                <Text style={styles.colorText}> {props.userNumber} </Text> 
+            </Text>
+            <Button title='Juego Nuevo' onPress={props.onRestart}/>
         </View>
     );
 };
@@ -14,6 +27,28 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    boldText:{
+        fontWeight: 'bold',
+        fontSize: 15,
+        marginVertical: 15,
+        textAlign: 'center',
+    },
+    colorText:{
+        color: colors.primary,
+    },
+    imageContainer:{
+        width: 300,
+        height: 300,
+        borderRadius: 150,
+        borderWidth: 3,
+        borderColor: 'black',
+        overflow: 'hidden',
+        marginVertical: 30,
+    },
+    image:{
+        width: '100%',
+        height: '100%',
     },
 });
 
