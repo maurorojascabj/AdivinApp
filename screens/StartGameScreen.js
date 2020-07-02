@@ -4,6 +4,7 @@ import {View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Aler
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import MainButton from '../components/MainButton';
 
 import colors from '../constants/colors';
 
@@ -11,7 +12,7 @@ const StartGameScreen = props => {
 
     const [enteredValue, setEnteredValue] = useState('');
     const [confirmed, setConfirmed] = useState(false);
-    const [selectNumber, setSelectedNumber] = useState('');
+    const [selectedNumber, setSelectedNumber] = useState('');
 
     const numberInputHandler = inputText => {
         setEnteredValue(inputText.replace(/[^0-9]/g,''));
@@ -43,12 +44,10 @@ const StartGameScreen = props => {
         confirmedOutput = (
             <Card style={styles.summaryContainer}>
                 <Text>Numero Seleccionado:</Text>
-                <NumberContainer>{selectNumber}</NumberContainer>
-                <Button 
-                    title='COMENZAR JUEGO' 
-                    color={colors.primary}
-                    onPress = {() => props.onStartGame(selectNumber)}
-                />
+                <NumberContainer>{selectedNumber}</NumberContainer>
+                <MainButton onPress = {() => props.onStartGame(selectedNumber)} >
+                    COMENZAR JUEGO
+                </MainButton>
             </Card>
         );
      };
