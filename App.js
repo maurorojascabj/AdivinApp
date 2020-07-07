@@ -45,7 +45,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <View style={styles.screen}>
-        <Header title='Adivinar Número'/> 
+        <Header title='AdivinApp'/> 
         {content}
       </View>
     </>
